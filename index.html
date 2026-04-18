@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponte Tu Casco Zanka - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- MARQUESINA SUPERIOR -->
+    <header class="marquee-container">
+        <div class="marquee-text">
+            <span>Zankas que se registraron: 1,240</span>
+            <span>Zankas que canjearon voucher: 850</span>
+            <span>% TOTAL DE REGISTROS: 85%</span>
+            <span>% LLENARON FORMULARIO: 72%</span>
+        </div>
+    </header>
+
+    <!-- INFO BUTTONS (Barra de Navegación Estilo Dashboard) -->
+    <nav class="info-buttons">
+        <button>INICIO</button>
+        <button>BASES</button>
+        <button>PREMIOS</button>
+        <button>CONTACTO</button>
+    </nav>
+
+    <!-- CONTENIDO SCROLLABLE -->
+    <main class="scroll-container">
+
+        <!-- VIDEO PRINCIPAL: CASCO.MP4 -->
+        <section class="video-hero">
+            <video id="v-casco" autoplay muted loop playsinline>
+                <source src="casco.mp4" type="video/mp4">
+                Tu navegador no soporta video.
+            </video>
+        </section>
+
+        <!-- SECCIÓN DE REGISTRO E INTERACCIÓN -->
+        <section class="action-section">
+
+            <!-- CONTENEDOR: PUNTOS DE REGISTRO.MP4 -->
+            <div class="video-card">
+                <video src="puntos_registro.mp4" muted loop playsinline autoplay></video>
+                <div class="label">Puntos de Registro</div>
+            </div>
+
+            <!-- BOTÓN REGISTRARSE -->
+            <button class="btn-main-register">REGISTRARSE</button>
+
+            <!-- CONTENEDOR: INFRACCIONES.MP4 -->
+            <div class="video-card large">
+                <video src="infracciones.mp4" muted loop playsinline autoplay></video>
+                <div class="label">Módulo de Infracciones</div>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
