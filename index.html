@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Ponte Tu Casco Zanka - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* MINI FIX: asegura que el contenedor del video nunca tenga fallos de renderizado en móvil */
+        #video-container {
+            background: #000000;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            will-change: transform;
+        }
+
+        video#v-casco {
+            display: block;
+            background: black;
+            /* evita cualquier flash blanco */
+        }
+
+        /* mantiene el comportamiento táctil suave sin interferir */
+        body {
+            touch-action: pan-y;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="marquee-container">
+        <div class="marquee-text">
+            <span>Zankas que se registraron: 1,240</span>
+            <span>Zankas que canjearon voucher: 850</span>
+            <span>% TOTAL DE REGISTROS: 85%</span>
+            <span>% LLENARON FORMULARIO: 72%</span>
+        </div>
+    </header>
+
+    <nav class="info-buttons">
+        <button>INICIO</button>
+        <button>REGISTRARSE</button>
+        <button>PUNTOS</button>
+        <button>CONTACTO</button>
+    </nav>
+
+    <!-- El video DEBE estar fuera de secciones para el scroll sync -->
+    <div id="video-container">
+        <video id="v-casco" preload="auto" muted playsinline disablePictureInPicture>
+            <source src="Casco.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+        </video>
+    </div>
+
+    <main class="scroll-container">
+        <!-- Espaciadores para que el video gire al bajar -->
+        <section class="spacer"></section>
+        <section class="spacer"></section>
+
+        <section class="action-section">
+            <div class="video-card">
+                <video src="puntos_registro.mp4" muted loop playsinline autoplay></video>
+                <div class="label">Puntos de Registro</div>
+            </div>
+
+            <button class="btn-main-register">REGISTRARSE</button>
+
+            <div class="video-card large">
+                <video src="infracciones.mp4" muted loop playsinline autoplay></video>
+                <div class="label">Módulo de Infracciones</div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
