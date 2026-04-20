@@ -1,0 +1,202 @@
+/* ============================================================
+   PONTE TU CASCO ZANKA — style.css v4
+   🔧 único cambio: object-fit contain → cover (quita barras negras)
+   ============================================================ */
+
+:root {
+    --primary-orange: #d35400;
+    --dark-bg: #1a1a1a;
+    --sand-light: #e8c97a;
+    --sand-mid: #c9973e;
+    --sand-dark: #8b6020;
+    --ocean-shallow: #3ab5c8;
+    --ocean-deep: #0a3c6e;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: Arial, sans-serif;
+    touch-action: pan-y;
+}
+
+.marquee-container {
+    background: linear-gradient(to right, #ccc, #eee);
+    color: #333;
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.marquee-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-text span {
+    margin-right: 3rem;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100vw);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.info-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: var(--primary-orange);
+    position: sticky;
+    top: 31px;
+    z-index: 99;
+}
+
+.info-buttons button {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: white;
+    padding: 15px 2px;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background: #000;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+}
+
+video#v-casco {
+    display: block;
+    width: 100%;
+    height: 100%;
+    /*
+    🔧 BUG FIX: bordes negros en móvil
+    contain → deja barras negras cuando el ratio del video
+               no coincide con el ratio de la pantalla.
+    cover   → recorta el video para llenar TODO el espacio
+               sin barras, igual que un fondo de pantalla.
+  */
+    object-fit: cover;
+    background: black;
+}
+
+.scroll-container {
+    position: relative;
+    z-index: 2;
+}
+
+.spacer {
+    height: 100vh;
+    pointer-events: none;
+}
+
+.action-section {
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeBlend in='SourceGraphic' mode='multiply'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E"),
+        linear-gradient(180deg, #e8c97a 0%, #c9973e 40%, #d4a652 70%, #8b6020 100%);
+    background-size: 200px 200px, 100% 100%;
+}
+
+#action-wave-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.action-section>*:not(#action-wave-canvas) {
+    position: relative;
+    z-index: 1;
+}
+
+.video-card {
+    width: 100%;
+    max-width: 350px;
+    height: 150px;
+    border: 2px solid white;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.video-card.large {
+    height: 250px;
+}
+
+.video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-card .label {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.btn-main-register {
+    background: white;
+    color: var(--primary-orange);
+    border: none;
+    padding: 15px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    animation: btn-float 3s ease-in-out infinite;
+}
+
+@keyframes btn-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    50% {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 28px rgba(0, 0, 0, 0.3);
+    }
+}
