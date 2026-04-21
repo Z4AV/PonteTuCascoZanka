@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Ponte Tu Casco Zanka - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ✅ MARQUESINA -->
+    <header class="marquee-container">
+        <div class="marquee-text">
+            <span>Zankas que se registraron: 1,240</span>
+            <span>Zankas que canjearon voucher: 850</span>
+            <span>% TOTAL DE REGISTROS: 85%</span>
+            <span>% LLENARON FORMULARIO: 72%</span>
+        </div>
+    </header>
+
+    <!-- ✅ NAV -->
+    <nav class="info-buttons">
+        <button>INICIO</button>
+        <button>REGISTRARSE</button>
+        <button>PUNTOS</button>
+        <button>CONTACTO</button>
+    </nav>
+
+    <!-- ✅ VIDEO FIJO (Casco.mp4) -->
+    <div id="video-container">
+        <video id="v-casco" preload="auto" muted playsinline loop autoplay disablePictureInPicture>
+            <source src="Casco.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+        </video>
+    </div>
+
+    <main class="scroll-container">
+
+        <!-- ✅ SPACERS — mueven el video con scroll -->
+        <section class="spacer"></section>
+        <section class="spacer"></section>
+
+        <!--
+      🆕 BANNER ZANKA — franja entre el video y la sección de arena,
+      igual que en el wireframe. Fondo gris degradado, texto estilizado.
+    -->
+        <div class="zanka-banner">
+            <span class="zanka-logo">ZANKA</span>
+            <span class="zanka-sub">CIUDAD DE TODOS</span>
+        </div>
+
+        <!-- 🆕 ACTION SECTION rediseñada según wireframe -->
+        <section class="action-section">
+            <canvas id="action-wave-canvas"></canvas>
+
+            <!--
+        PUNTOS DE CANJE: 2 tarjetas lado a lado
+        Izquierda: Ayuntamiento (placeholder hasta tener el video)
+        Derecha:   Plaza Kyoto (MPlazaKyoto.mp4 ya disponible)
+      -->
+            <div class="map-cards-row">
+
+                <!-- Tarjeta Ayuntamiento — placeholder por ahora -->
+                <div class="map-card">
+                    <div class="map-placeholder">
+                        <span class="map-icon">📍</span>
+                        <span class="map-coming">Próximamente</span>
+                    </div>
+                    <div class="map-label">📍 Ayuntamiento</div>
+                </div>
+
+                <!-- Tarjeta Plaza Kyoto — video real -->
+                <div class="map-card">
+                    <video src="MPlazaKyoto.mp4" muted loop playsinline autoplay></video>
+                    <div class="map-label">📍 Plaza Kyoto</div>
+                </div>
+
+            </div>
+
+            <!-- ✅ BOTÓN REGISTRARSE — debajo de las tarjetas, igual que wireframe -->
+            <button class="btn-main-register">REGISTRARSE</button>
+
+            <!--
+        🆕 SECCIÓN DE OLAS + INFRACCIONES
+        El video de infracciones va debajo del botón,
+        sobre las olas, como se ve en la parte inferior del wireframe.
+      -->
+            <div class="infracciones-wrap">
+                <video class="infracciones-video" src="infracciones.mp4" muted loop playsinline autoplay></video>
+                <div class="infracciones-label">Módulo de Infracciones</div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
